@@ -152,11 +152,12 @@ public class booking_servlet extends HttpServlet {
          java_sql_helper db = new java_sql_helper();
             
             
-            String firstname = client.firstname;           
-            String email = client.email;
+            String firstname = client.getFirstname();           
+            String email = client.getEmail();
             String room_no = req.getParameter("room_no");
             Date checkindate = (Date)session.getAttribute("checkindate");
             Date checkoutdate = (Date)session.getAttribute("checkoutdate");
+            String phone = client.getPhone();
             
             System.out.println("Checkin Date as an atrribute is"+checkindate);
             
@@ -181,8 +182,8 @@ public class booking_servlet extends HttpServlet {
             
             
             
-            String insert_statement_prepared = "INSERT INTO bookings VALUES(?,?,?,?,?,?)";
-            Object[] data = new Object[6];
+            String insert_statement_prepared = "INSERT INTO bookings VALUES(?,?,?,?,?,?,?)";
+            Object[] data = new Object[7];
             
             data[0] = booking_id;
             data[1] = firstname;
@@ -190,13 +191,14 @@ public class booking_servlet extends HttpServlet {
             data[3] = room_no;
             data[4] = checkindate;
             data[5] = checkoutdate;
+            data[6] = phone;
        
             
             int i;
-            for(i=0;i<6;i++){
+            for(i=0;i<7;i++){
             System.out.println("value in array is : "+data[i]);}
             
-            int rows = db.insert_function(insert_statement_prepared, 6, data);
+            int rows = db.insert_function(insert_statement_prepared, 7, data);
             
             if (rows==1)
             {
