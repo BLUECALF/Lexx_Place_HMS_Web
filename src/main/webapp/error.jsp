@@ -34,11 +34,7 @@
                 <label>Error details</label>
                 <label class="form-control">${detailed_error}</label> <br/>
             </div>       
-            <div class="form-group">
-                <a href="http://http://localhost:8080/Lexx_place_HMS/index.html">
-                <button class="btn btn-success">Go To Login</button>
-                </a>
-            </div>            
+                     
                   
         </form>      
               

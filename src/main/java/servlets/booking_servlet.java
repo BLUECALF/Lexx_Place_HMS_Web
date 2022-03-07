@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
@@ -64,10 +66,19 @@ public class booking_servlet extends HttpServlet {
         
        // get date now
       now_date = new Date();
-        System.out.println("NOw :: is "+now_date.getDate());
-        
-        
-       if(checkindate.before(now_date))
+      LocalDateTime today = LocalDateTime.now();
+      LocalDateTime yesterday = today.minusDays(1);
+      Date yesterday_date;
+      Calendar c = Calendar.getInstance();
+      c.setTime(now_date);
+      c.add(Calendar.DATE, -1);
+      yesterday_date = c.getTime();
+      //minus 1 day from now to get yesterday time like this.
+      
+        System.out.println("NOW :: is "+now_date.toString());
+        System.out.println("Yesteday Date :: is "+yesterday_date.toString());
+        System.out.println("Yesterday date using LDT :"+yesterday.toString());
+       if(checkindate.before(yesterday_date))
        {
            System.out.println("checkin date is past ");
            req.setAttribute("error","You Cannot Checkin at a Past Date");

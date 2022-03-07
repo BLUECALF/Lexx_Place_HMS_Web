@@ -94,7 +94,7 @@
      </form>  
                 <%-- Access Resident Service form --%>
                 <form action="resident_servlet" method="get"
-                <form class="form-group" style="background-color: greenyellow;
+               class="form-group" style="background-color: greenyellow;
                       padding: 20px;
                       margin: 40px;
                       border-radius: 20px">
