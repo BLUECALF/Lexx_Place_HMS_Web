@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +47,19 @@ public class cancel_booking_servlet extends HttpServlet {
                String email = rs.getString("email");
                Date checkindate =rs.getDate("checkin_date");
                Date checkoutdate = rs.getDate("checkout_date");
+               
+               String query1 = "SELECT * from residents WHERE resident_id="+"\"" +booking_id+"\"";
+            ResultSet rs0 = db.query_function(query1);
+            
+           
+                if(rs0.next()==true)
+                {
+                    // you are a resident - a d resident cannot cancel booking
+                  req.setAttribute("message"," Cancel Failed: A resident cannot cancel booking of room number "+room_no);
+                       req.setAttribute("firstname",firstname);   
+                       req.getRequestDispatcher("customer_page.jsp").forward(req, resp);
+                    return;
+                }
                 
                String Remove_statement = "DELETE from bookings where booking_id="+"\""+booking_id+"\"";
                int rows = db.update_function(Remove_statement);
