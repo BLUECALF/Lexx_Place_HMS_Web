@@ -87,10 +87,7 @@ public class login_servlet extends HttpServlet {
      
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       resp.sendRedirect("localhost:8080/Lexx_place_HMS/index.html");
-    }
+   
     
      
 
