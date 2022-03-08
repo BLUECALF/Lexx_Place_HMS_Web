@@ -73,7 +73,7 @@
             <input type="text" name="item_name" required><br>
             <input type="hidden" name="order_category" value="food" required>            
             <label>Description</label><br>
-            <textarea name="description" cols ="40" rows ="3" required></textarea>
+            <textarea name="description" cols ="40" rows ="3" maxlength="40" required></textarea>
 <br>
             <input type="submit" value="Order Food" class="btn btn-success">            
         </form>              
