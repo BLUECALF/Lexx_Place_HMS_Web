@@ -108,7 +108,7 @@
                     
                     <input type="hidden" name="order_category" value="room_cleaning" required> 
                      <input type="hidden" name="item_name" value="room_cleaning" required>
-                     <input type="hidden" name="description" value="house cleaning service" required>
+                     <input type="hidden" name="description" value="room cleaning service" required>
                     
             <h3>Order Room Cleaning Service </h3>
             <label></label>
