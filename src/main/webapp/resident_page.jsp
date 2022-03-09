@@ -106,8 +106,8 @@
                       margin: 40px;
                       border-radius: 20px">
                     
-                    <input type="hidden" name="order_category" value="room_cleaning" required> 
-                     <input type="hidden" name="item_name" value="room_cleaning" required>
+                    <input type="hidden" name="order_category" value="cleaning" required> 
+                     <input type="hidden" name="item_name" value="cleaning" required>
                      <input type="hidden" name="description" value="room cleaning service" required>
                     
             <h3>Order Room Cleaning Service </h3>
